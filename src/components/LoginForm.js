@@ -10,7 +10,7 @@ export default function LoginForm(){
             <InputText type='password' placeholder="Enter password" icon="lock" />
 
             <Button>
-                Login
+                <span>Login</span>
             </Button>
 
             <div className="info">Don't have an account? <a href="signup.html">Signup</a> instead.</div>

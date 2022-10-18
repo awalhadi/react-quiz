@@ -18,7 +18,7 @@ export default function SignupForm(){
             <Checkbox text="I agree to the Terms &amp; Conditions" />
 
             <Button>
-                Submit now
+               <span>Submit now</span>
             </Button>
 
             <div className="info">
