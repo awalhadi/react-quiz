@@ -18,7 +18,7 @@ export default function ProgressBar (){
             
           </div>
 
-          <Link to="/result">
+          <Link to="/quiz/result">
             <Button className={styles.next}>
                 <span>Next Question</span>
                 <span className="material-icons-outlined"> arrow_forward </span>

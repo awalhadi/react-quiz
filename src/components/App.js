@@ -9,6 +9,13 @@ import Login from "./pages/Login";
 import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
 import Signup from "./pages/Signup";
+import PrivateRoute from "./routes/PrivateRoute";
+// import PrivateRoute5 from "./PrivateRoute5";
+// import PublicRoute5 from "./PublicRoute5";
+// import PrivateRouteAlternative from "./routes/PrivateRouteAlternative";
+import PublicRoute from "./routes/PublicRoute";
+// import PublicRouteAlternative from "./routes/PublicRouteAlternative";
+// import PrivateRoute from "./PrivateRoute";
 
 function App() {
   return (
@@ -16,11 +23,20 @@ function App() {
       <AuthProvider>
         <Layout>
           <Routes>
-            <Route exact path="/" element={<Home/>} />
-            <Route exact path="/signup" element={<Signup/>} />
-            <Route exact path="/login" element={<Login/>} />
-            <Route exact path="/quiz" element={<Quiz/>} />
-            <Route exact path="/result" element={<Result/>} />
+            <Route path="/" element={<Home/>} />
+            {/* <Route path="signup" element={<PublicRouteAlternative> <Signup /> </PublicRouteAlternative>} />
+            <Route path="login" element={<PublicRouteAlternative> <Login /> </PublicRouteAlternative>} /> */}
+            {/* <Route path="quiz" element={<PrivateRouteAlternative > <Quiz/> </PrivateRouteAlternative>} />
+            <Route path="result" element={<PrivateRouteAlternative > <Result/> </PrivateRouteAlternative>} /> */}
+
+            <Route path="quiz" element={<PrivateRoute />} >
+                <Route index element={<Quiz />} />
+                <Route path="result" element={<Result />}></Route>
+            </Route>
+            <Route path="auth" element={<PublicRoute />} >
+                <Route path="login" element={<Login />}></Route>
+                <Route path="signup" element={<Signup />}></Route>
+            </Route>
 
           </Routes>
         </Layout>

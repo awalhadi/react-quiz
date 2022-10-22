@@ -33,18 +33,31 @@ function AuthProvider({children}){
 
         const user = auth.currentUser;
 
-        setCurrentUser({...user});
+        setCurrentUser({
+            ...user
+        });
 
     }
 
     async function login(email, password){
         const auth = getAuth();
-        return await signInWithEmailAndPassword(auth, email, password);
+        return await signInWithEmailAndPassword(auth, email, password)
+                        .then((data)=>{
+                            return true;
+                        }).catch((error)=>{
+                            return false;
+                        
+                        });
     }
 
     async function logout(){
         const auth = getAuth();
-        return await signOut(auth);
+        
+        await signOut(auth).then(() => {
+        console.log('success');
+        }).catch((error) => {
+        console.log(error);
+        });
     }
 
     const value = {
